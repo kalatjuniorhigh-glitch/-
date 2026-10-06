@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>مكتبة الدكتور بندر علي أكبر شاكه</title>
+<style>
+:root{--p:#1b4d3a;--s:#a3262b;--g:#c9a227;--bg:#f5f1e6;--c:#fffdf7;--t:#23201a;--m:#6b6556;--b:#ddd5c0;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--p:#7fcaa0;--s:#e0656a;--g:#d9b445;--bg:#16130f;--c:#1f1b15;--t:#ece6d6;--m:#a39b86;--b:#383226}}
+:root[data-theme="dark"]{--p:#7fcaa0;--s:#e0656a;--g:#d9b445;--bg:#16130f;--c:#1f1b15;--t:#ece6d6;--m:#a39b86;--b:#383226}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--t);font-family:'Amiri','Noto Naskh Arabic','Segoe UI',Tahoma,Georgia,serif;line-height:1.6}
+.band{height:6px;background:linear-gradient(90deg,#a3262b 0 33.3%,#f4efe2 33.3% 66.6%,#1b4d3a 66.6%)}
+header{background:#143a2b;color:#f5f1e6;text-align:center;padding:1.6rem 1rem 1.2rem;border-bottom:3px solid var(--g);position:relative}
+header::after{content:"";position:absolute;inset:auto 0 -9px 0;height:6px;background:repeating-linear-gradient(135deg,var(--g) 0 6px,transparent 6px 12px);opacity:.55}
+.sun{width:58px;height:58px;display:block;margin:0 auto .5rem}
+header h1{margin:0;font-size:clamp(1.4rem,5vw,2.1rem);font-weight:700;letter-spacing:.02em}
+header p{margin:.4rem 0 .9rem;opacity:.85;font-size:1rem}
+.ui{display:inline-flex;gap:.4rem}
+.ui button{background:transparent;border:1px solid #c9a22799;color:#f5f1e6;border-radius:3px;padding:.25rem .9rem;cursor:pointer;font:inherit}
+.ui button.on{background:var(--g);color:#143a2b;font-weight:700}
+.wrap{max-width:1100px;margin:auto;padding:1.4rem 1rem}
+.tabs{display:flex;gap:.2rem;justify-content:center;margin-bottom:1.2rem;border-bottom:1px solid var(--b);overflow-x:auto}
+.tab{padding:.7rem 1rem;border:none;border-bottom:3px solid transparent;background:none;color:var(--m);font:inherit;font-weight:700;cursor:pointer;white-space:nowrap}
+.tab.on{color:var(--s);border-color:var(--s)}
+.controls{display:flex;flex-direction:column;gap:.8rem;margin-bottom:1rem;align-items:center}
+input,select{font:inherit;color:var(--t);background:var(--c);border:1px solid var(--b);border-radius:4px;padding:.6rem .9rem;width:100%}
+#q{max-width:520px}
+.chips{display:flex;gap:.4rem;flex-wrap:wrap;justify-content:center}
+.chip,.tool{background:var(--c);border:1px solid var(--b);color:var(--p);padding:.35rem .9rem;border-radius:3px;cursor:pointer;font:inherit;font-weight:700}
+.chip.on{background:var(--p);color:var(--c);border-color:var(--p)}
+.lab{color:var(--m);font-size:.9rem;display:block;text-align:center;margin-bottom:.3rem}
+.count{text-align:center;color:var(--m);margin:0 0 1rem}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(235px,1fr));gap:1rem}
+.card{background:var(--c);border:1px solid var(--b);border-top:3px solid var(--s);border-radius:3px;padding:1rem;display:flex;flex-direction:column;justify-content:space-between;gap:.8rem}
+.cat{font-size:.78rem;color:var(--s);font-weight:700}
+.ti{font-size:1.15rem;font-weight:700;color:var(--p);margin:.2rem 0;line-height:1.4}
+.au{font-size:.92rem;color:var(--m)}
+.acts{display:flex;gap:.5rem}
+.btn{flex:1;text-align:center;padding:.5rem;border-radius:3px;text-decoration:none;font-size:.9rem;font-weight:700;background:var(--p);color:var(--c)}
+.btn.d{background:transparent;color:var(--p);border:1px solid var(--p)}
+.del{background:none;border:none;color:var(--s);cursor:pointer;font-size:.8rem;padding:0;align-self:flex-start}
+.star{background:none;border:none;color:var(--g);font-size:1.25rem;cursor:pointer;padding:0;line-height:1}
+.top{display:flex;justify-content:space-between;align-items:flex-start;gap:.5rem}
+#banner:not(:empty){background:var(--c);border:1px solid var(--g);border-radius:3px;padding:.8rem 1rem;margin-bottom:1rem;text-align:center}
+#banner .chip{margin:.4rem .2rem 0}
+.stats{text-align:center;color:var(--m);font-size:.95rem;margin-bottom:1rem;padding:.6rem;border:1px dashed var(--g);border-radius:3px}
+.stats b{color:var(--s);font-size:1.15rem}
+.stats span{display:inline-block;margin:0 .6rem}
+.none{grid-column:1/-1;text-align:center;color:var(--m);padding:2rem}
+dialog{border:1px solid var(--b);border-top:3px solid var(--g);border-radius:4px;background:var(--c);color:var(--t);width:min(92vw,460px);padding:1.2rem}
+dialog::backdrop{background:rgba(0,0,0,.55)}
+dialog label{display:block;margin:.55rem 0 .2rem;font-size:.9rem}
+.row{display:flex;gap:.5rem;margin-top:1rem}
+footer{text-align:center;color:var(--m);padding:1.5rem 1rem;font-size:.85rem}
+</style>
+</head>
+<body>
+<div class="band"></div>
+<header>
+<svg class="sun" viewBox="0 0 100 100" aria-hidden="true"><g fill="#d4a72c"><polygon points="50.0,3.0 48.4,25.0 51.6,25.0"/><polygon points="63.9,5.1 55.9,25.7 58.9,26.6"/><polygon points="76.5,11.2 62.8,28.5 65.4,30.3"/><polygon points="86.7,20.7 68.5,33.2 70.5,35.7"/><polygon points="93.8,32.8 72.7,39.4 73.8,42.3"/><polygon points="96.9,46.5 74.8,46.6 75.0,49.7"/><polygon points="95.8,60.5 74.7,54.0 74.0,57.1"/><polygon points="90.7,73.5 72.4,61.1 70.8,63.8"/><polygon points="82.0,84.5 68.1,67.2 65.8,69.4"/><polygon points="70.4,92.3 62.2,71.8 59.4,73.2"/><polygon points="57.0,96.5 55.3,74.4 52.2,74.9"/><polygon points="43.0,96.5 47.8,74.9 44.7,74.4"/><polygon points="29.6,92.3 40.6,73.2 37.8,71.8"/><polygon points="18.0,84.5 34.2,69.4 31.9,67.2"/><polygon points="9.3,73.5 29.2,63.8 27.6,61.1"/><polygon points="4.2,60.5 26.0,57.1 25.3,54.0"/><polygon points="3.1,46.5 25.0,49.7 25.2,46.6"/><polygon points="6.2,32.8 26.2,42.3 27.3,39.4"/><polygon points="13.3,20.7 29.5,35.7 31.5,33.2"/><polygon points="23.5,11.2 34.6,30.3 37.2,28.5"/><polygon points="36.1,5.1 41.1,26.6 44.1,25.7"/><circle cx="50" cy="50" r="17"/></g></svg>
+<h1 id="h1"></h1><p id="sub"></p>
+<div class="ui" id="ui"><button data-u="ar">العربية</button><button data-u="ku">کوردی</button><button data-u="en">English</button></div>
+</header>
+<div class="wrap">
+<div class="stats" id="stats"></div>
+<div class="tabs" id="tabs"></div>
+<div class="controls">
+<input id="q" type="search">
+<div><span class="lab" id="l1"></span><div class="chips" id="langs"></div></div>
+<div class="chips" id="chips"></div>
+<div><span class="lab" id="l2"></span><div class="chips" id="lvls"></div></div>
+<div class="chips"><button class="tool" id="favBtn"></button><button class="tool" id="shareBtn"></button><button class="tool" id="addBtn"></button><button class="tool" id="expBtn"></button><button class="tool" id="impBtn"></button><input type="file" id="file" accept=".json" hidden></div>
+</div>
+<div id="banner"></div>
+<p class="count" id="count"></p>
+<div class="grid" id="grid"></div>
+</div>
+
+<dialog id="dlg">
+<h3 id="dh" style="margin:0 0 .4rem"></h3>
+<label id="d0"></label><select id="fK"></select>
+<label id="d1"></label><input id="fT">
+<label id="d2"></label><input id="fA">
+<label id="d3"></label><select id="fL"></select>
+<label id="d4"></label><select id="fC"></select>
+<label id="d5"></label><input id="fR" dir="ltr" placeholder="https://...">
+<label id="d6"></label><input id="fD" dir="ltr" placeholder="https://...">
+<div class="row"><button class="tool" id="save" style="flex:1;background:var(--p);color:var(--bg)"></button><button class="tool" id="cancel" style="flex:1"></button></div>
+</dialog>
+<dialog id="sh">
+<h3 id="sh0" style="margin:0 0 .4rem"></h3>
+<label id="sh1"></label><div class="row" style="margin:0"><input id="u1" readonly dir="ltr"><button class="tool" data-cp="u1"></button></div>
+<label id="sh2"></label><input id="ln">
+<div class="row" style="margin-top:.4rem"><input id="u2" readonly dir="ltr"><button class="tool" data-cp="u2"></button></div>
+<p id="sh3" class="lab" style="margin:.8rem 0 .3rem"></p>
+<div id="qr" style="background:#fff;padding:8px;width:176px;margin:auto;border-radius:4px;min-height:40px"></div>
+<div class="row"><button class="tool" id="nat" style="flex:1"></button><button class="tool" id="shx" style="flex:1"></button></div>
+</dialog>
+<footer id="foot"></footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script>
+const T={
+ar:{dir:'rtl',h:'مكتبة الدكتور بندر علي أكبر شاكه',sub:'قراءة وتحميل واستماع ومشاهدة مجانية — وتقبل الإضافة والزيادة',tabs:{b:'الكتب',a:'الكتب المسموعة',v:'الفيديوهات',j:'المجلات المحكمة',e:'تجارب علمية وإبداع',r:'الفنون الراقية',w:'مؤلفات الدكتور بندر'},all:'الكل',q:'ابحث...',cl:'لغة المحتوى:',add:'➕ إضافة',exp:'⬇ تصدير',imp:'⬆ استيراد',read:'قراءة',dl:'تحميل',listen:'استماع',watch:'مشاهدة',open:'فتح',stt:'محتوى المكتبة الآن',vis:'👁 الزوار',wempty:'هذا القسم قيد الإعداد: ستُضاف هنا مؤلفات الدكتور بندر علي أكبر شاكه وترجمته فور اعتمادها من إدارة المكتبة.',thx:'بكم تستمر المكتبة — شكراً لزيارتكم ومشاركتكم',fav:'★ المفضلة',share:'🔗 مشاركة',lvlab:'المرحلة:',lv:{all:'الكل',kids:'أطفال',sec:'ثانوية',uni:'جامعي وبحثي',gen:'عام'},shared:'قائمة قراءة مشتركة',saveall:'احفظ الكل في مفضلتي',back:'العودة للمكتبة',copy:'نسخ',copied:'تم النسخ ✓',libLink:'رابط المكتبة',listLink:'رابط قائمتي (المفضلة)',listName:'اسم القائمة (اختياري)',close:'إغلاق',qrt:'امسح الرمز لفتح المكتبة',nofav:'لا شيء في المفضلة بعد — اضغط ☆ على أي بطاقة.',toB:'📖 اقرأ الكتاب',toA:'🎧 استمع للكتاب',del:'حذف',n:'العدد: ',none:'لا توجد نتائج.',ah:'إضافة جديدة',f:['النوع','العنوان *','المؤلف / الوصف','لغة المحتوى','القسم','الرابط الرئيسي (اختياري)','رابط التحميل (اختياري)'],save:'حفظ',cancel:'إلغاء',conf:'حذف هذا العنصر؟',bad:'ملف غير صالح',foot:'مكتبة مفتوحة للجميع ومجانية. محتواها من الملك العام والمصادر المفتوحة، وتُدار إضافاتها وحذفها من إدارة المكتبة.'},
+ku:{dir:'rtl',h:'کتێبخانەی دکتۆر بەندەر عەلی ئەکبەر شاکە',sub:'خوێندنەوە، داگرتن، گوێگرتن و تەماشاکردنی بێبەرامبەر — و ئامادەی زیادکردنە',tabs:{b:'کتێبەکان',a:'کتێبی دەنگی',v:'ڤیدیۆکان',j:'ژورناڵە هەڵسەنگێندراوەکان',e:'تاقیکردنەوە و داهێنان',r:'هونەرە ڕەسەنەکان',w:'بەرهەمەکانی د. بەندەر'},all:'هەمووی',q:'بگەڕێ...',cl:'زمانی ناوەڕۆک:',add:'➕ زیادکردن',exp:'⬇ هەناردە',imp:'⬆ هاوردە',read:'خوێندنەوە',dl:'داگرتن',listen:'گوێگرتن',watch:'تەماشاکردن',open:'کردنەوە',stt:'ناوەڕۆکی کتێبخانە ئێستا',vis:'👁 سەردانکەر',wempty:'ئەم بەشە لە ئامادەکردندایە: بەرهەم و ژیاننامەی د. بەندەر عەلی ئەکبەر شاکە لێرە زیاد دەکرێن کاتێک بەڕێوەبەرایەتی کتێبخانە پەسەندی بکات.',thx:'بە بوونی ئێوە کتێبخانە بەردەوام دەبێت — سوپاس بۆ سەردانتان',fav:'★ دڵخواز',share:'🔗 هاوبەشکردن',lvlab:'قۆناغ:',lv:{all:'هەمووی',kids:'منداڵان',sec:'ئامادەیی',uni:'زانکۆ و توێژینەوە',gen:'گشتی'},shared:'لیستی خوێندنەوەی هاوبەش',saveall:'هەموو لە دڵخوازەکانم پاشەکەوت بکە',back:'گەڕانەوە بۆ کتێبخانە',copy:'لەبەرگرتنەوە',copied:'لەبەرگیرایەوە ✓',libLink:'بەستەری کتێبخانە',listLink:'بەستەری لیستەکەم (دڵخوازەکان)',listName:'ناوی لیست (ئارەزوومەندانە)',close:'داخستن',qrt:'کۆدەکە سکان بکە بۆ کردنەوەی کتێبخانە',nofav:'هێشتا هیچ شتێک لە دڵخوازەکان نییە — لەسەر هەر کارتێک ☆ دابگرە.',toB:'📖 کتێبەکە بخوێنەوە',toA:'🎧 گوێ لە کتێبەکە بگرە',del:'سڕینەوە',n:'ژمارە: ',none:'هیچ ئەنجامێک نییە.',ah:'زیادکردنی نوێ',f:['جۆر','ناونیشان *','نووسەر / وەسف','زمانی ناوەڕۆک','بەش','بەستەری سەرەکی (ئارەزوومەندانە)','بەستەری داگرتن (ئارەزوومەندانە)'],save:'پاشەکەوتکردن',cancel:'پاشگەزبوونەوە',conf:'ئەم بابەتە بسڕدرێتەوە؟',bad:'فایلەکە دروست نییە',foot:'کتێبخانەیەکی کراوە و بێبەرامبەرە بۆ هەمووان. ناوەڕۆکەکەی لە سەرچاوە کراوەکان و دۆمەینی گشتییە، و زیادکردن و سڕینەوەی لە لایەن بەڕێوەبەرایەتییەوە بەڕێوە دەچێت.'},
+en:{dir:'ltr',h:'Dr. Bandar Ali Akbar Shaka Library',sub:'Free reading, downloading, listening and watching — open to additions',tabs:{b:'Books',a:'Audiobooks',v:'Videos',j:'Peer-reviewed journals',e:'Experiments & Innovation',r:'Fine Art',w:'Works of Dr. Bandar'},all:'All',q:'Search...',cl:'Content language:',add:'➕ Add',exp:'⬇ Export',imp:'⬆ Import',read:'Read',dl:'Download',listen:'Listen',watch:'Watch',open:'Open',stt:'Library content now',vis:'👁 Visitors',wempty:'This section is being prepared: the works and biography of Dr. Bandar Ali Akbar Shaka will be added here once approved by the library administration.',thx:'The library continues thanks to you — thank you for visiting and sharing',fav:'★ Favorites',share:'🔗 Share',lvlab:'Level:',lv:{all:'All',kids:'Children',sec:'High school',uni:'University & research',gen:'General'},shared:'Shared reading list',saveall:'Save all to my favorites',back:'Back to library',copy:'Copy',copied:'Copied ✓',libLink:'Library link',listLink:'My list link (favorites)',listName:'List name (optional)',close:'Close',qrt:'Scan to open the library',nofav:'No favorites yet — tap ☆ on any card.',toB:'📖 Read the book',toA:'🎧 Listen to it',del:'Delete',n:'Items: ',none:'No results.',ah:'Add new item',f:['Type','Title *','Author / description','Content language','Category','Main link (optional)','Download link (optional)'],save:'Save',cancel:'Cancel',conf:'Delete this item?',bad:'Invalid file',foot:'An open, free library for everyone. Its content comes from the public domain and open sources; additions and removals are managed by the library administration.'}
+};
+const LN={ar:{ar:'العربية',ku:'الكوردية',en:'الإنجليزية'},ku:{ar:'عەرەبی',ku:'کوردی',en:'ئینگلیزی'},en:{ar:'Arabic',ku:'Kurdish',en:'English'}};
+const CT={
+lit:{ar:'أدب وشعر',ku:'ئەدەب و شیعر',en:'Literature & Poetry'},
+hist:{ar:'تاريخ وتراث',ku:'مێژوو و کەلەپوور',en:'History & Heritage'},
+sci:{ar:'علوم وطب',ku:'زانست و پزیشکی',en:'Science & Medicine'},
+phil:{ar:'فكر وفلسفة',ku:'بیر و فەلسەفە',en:'Thought & Philosophy'},
+rel:{ar:'دين وتزكية',ku:'ئایین و پاکژکردنەوە',en:'Religion & Spirituality'},
+kids:{ar:'الأطفال',ku:'منداڵان',en:'Children'},
+lang:{ar:'اللغة والنحو',ku:'زمان و ڕێزمان',en:'Language & Grammar'},
+skills:{ar:'تطوير المهارات',ku:'پەرەپێدانی توانا',en:'Skills Development'},
+motiv:{ar:'تطوير الذات والتحفيز',ku:'پەرەپێدانی خود و هاندان',en:'Self-Development & Motivation'},
+crit:{ar:'النقد الأدبي',ku:'ڕەخنەی ئەدەبی',en:'Literary Criticism'},
+phys:{ar:'الفيزياء',ku:'فیزیا',en:'Physics'},
+chem:{ar:'الكيمياء',ku:'کیمیا',en:'Chemistry'},
+bio:{ar:'الأحياء',ku:'ژیانناسی',en:'Biology'},
+inno:{ar:'الإبداع والابتكار',ku:'داهێنان و نوێکاری',en:'Creativity & Innovation'},
+dict:{ar:'قواميس ومعاجم اللغة',ku:'فەرهەنگ و قاموس',en:'Dictionaries & Lexicons'},
+pol:{ar:'الكتب السياسية',ku:'کتێبی سیاسی',en:'Political Works'},
+edu:{ar:'مصادر الكتب المنهجية',ku:'سەرچاوەی کتێبی پەروەردەیی',en:'Curriculum Textbook Sources'},
+paint:{ar:'كلاسيكيات الرسامين',ku:'کلاسیکی نیگارکێشان',en:'Master Painters'},
+museum:{ar:'متاحف ومجموعات فنية',ku:'مۆزەخانە و کۆمەڵە هونەرییەکان',en:'Museums & Art Collections'},
+works:{ar:'مؤلفات',ku:'بەرهەمەکان',en:'Published Works'},
+bio:{ar:'ترجمة وسيرة',ku:'ژیاننامە',en:'Biography'},
+coll:{ar:'مكتبات ومجموعات ضخمة',ku:'کتێبخانە و کۆمەڵە گەورەکان',en:'Large Libraries & Collections'},
+dir:{ar:'فهارس ومنصات المجلات',ku:'فەهرەست و پلاتفۆرمی ژورناڵ',en:'Journal Directories & Platforms'},
+oa:{ar:'مجلات وناشرون مفتوحو الوصول',ku:'ژورناڵ و بڵاوکەرەوەی کراوە',en:'Open-Access Journals & Publishers'}};
+/* أضف عناصر هنا: ['b' كتاب | 'a' مسموع | 'v' فيديو, 'العنوان','المؤلف','ar|ku|en','القسم', 'رابط رئيسي اختياري','رابط تحميل اختياري']
+   عند ترك الروابط فارغة تُنشأ روابط بحث تلقائية (ويكي مصدر، أرشيف الإنترنت، LibriVox، يوتيوب). */
+const DATA=[
+['b','مقدمة ابن خلدون','عبد الرحمن بن خلدون','ar','hist'],['b','كليلة ودمنة','ابن المقفع','ar','lit'],['b','ديوان المتنبي','أبو الطيب المتنبي','ar','lit'],['b','ديوان حافظ إبراهيم','حافظ إبراهيم','ar','lit'],['b','ديوان أحمد شوقي','أحمد شوقي','ar','lit'],['b','البخلاء','الجاحظ','ar','lit'],['b','البيان والتبيين','الجاحظ','ar','lit'],['b','رسالة الغفران','أبو العلاء المعري','ar','lit'],['b','مقامات الحريري','الحريري','ar','lit'],['b','ألف ليلة وليلة','مؤلف مجهول','ar','lit'],['b','الأغاني','أبو الفرج الأصفهاني','ar','lit'],['b','طوق الحمامة','ابن حزم الأندلسي','ar','lit'],['b','عيون الأخبار','ابن قتيبة','ar','lit'],
+['b','تاريخ الرسل والملوك','الطبري','ar','hist'],['b','الكامل في التاريخ','ابن الأثير','ar','hist'],['b','البداية والنهاية','ابن كثير','ar','hist'],['b','رحلة ابن بطوطة','ابن بطوطة','ar','hist'],['b','رحلة ابن جبير','ابن جبير','ar','hist'],['b','فتوح البلدان','البلاذري','ar','hist'],['b','خلاصة تاريخ الكرد وكردستان','محمد أمين زكي','ar','hist'],
+['b','القانون في الطب','ابن سينا','ar','sci'],['b','كتاب المناظر','ابن الهيثم','ar','sci'],['b','الحاوي في الطب','الرازي','ar','sci'],['b','حياة الحيوان الكبرى','الدميري','ar','sci'],
+['b','حي بن يقظان','ابن طفيل','ar','phil'],['b','تهافت الفلاسفة','أبو حامد الغزالي','ar','phil'],['b','المنقذ من الضلال','أبو حامد الغزالي','ar','phil'],['b','فصل المقال','ابن رشد','ar','phil'],
+['b','إحياء علوم الدين','أبو حامد الغزالي','ar','rel'],['b','رياض الصالحين','النووي','ar','rel'],['b','الأربعون النووية','النووي','ar','rel'],['b','الرسالة','الإمام الشافعي','ar','rel'],
+['b','خرافات إيسوب','إيسوب','ar','kids'],['b','ألف ليلة وليلة للناشئة','مؤلف مجهول','ar','kids'],['b','قصص وحكايات تراثية للأطفال','مجموعة','ar','kids'],
+['b','ألفية ابن مالك','ابن مالك','ar','lang'],['b','متن الآجرومية','ابن آجروم','ar','lang'],['b','قطر الندى وبل الصدى','ابن هشام','ar','lang'],['b','شذور الذهب','ابن هشام','ar','lang'],['b','اللمع في العربية','ابن جني','ar','lang'],['b','المزهر في علوم اللغة','السيوطي','ar','lang'],
+['b','أدب الدنيا والدين','الماوردي','ar','skills'],['b','تعليم المتعلم طريق التعلم','الزرنوجي','ar','skills'],['b','صيد الخاطر','ابن الجوزي','ar','skills'],['b','الأخلاق والسير','ابن حزم','ar','skills'],
+['b','مەم و زین','ئەحمەدی خانی','ku','lit'],['b','دیوانی نالی','نالی','ku','lit'],['b','دیوانی مەحوی','مەحوی','ku','lit'],['b','دیوانی سالم','سالم','ku','lit'],['b','دیوانی حاجی قادری کۆیی','حاجی قادری کۆیی','ku','lit'],['b','دیوانی جزیری','مەلای جزیری','ku','lit'],['b','شەرەفنامە','شەرەفخانی بدلیسی','ku','hist'],['b','چیرۆکی کوردی بۆ منداڵان','کۆمەڵێک نووسەر','ku','kids'],['b','ڕێزمانی زمانی کوردی','کۆمەڵێک نووسەر','ku','lang'],['b','فەرهەنگی کوردی','کۆمەڵێک نووسەر','ku','lang'],
+['b','Pride and Prejudice','Jane Austen','en','lit'],['b','Great Expectations','Charles Dickens','en','lit'],['b','Treasure Island','R. L. Stevenson','en','lit'],['b','The Adventures of Sherlock Holmes','Arthur Conan Doyle','en','lit'],['b','Frankenstein','Mary Shelley','en','lit'],['b','The Histories','Herodotus','en','hist'],['b','The Republic','Plato','en','phil'],['b','The Prince','Machiavelli','en','phil'],['b','Meditations','Marcus Aurelius','en','phil'],['b','On the Origin of Species','Charles Darwin','en','sci'],['b','Aesop\'s Fables','Aesop','en','kids'],['b','Alice\'s Adventures in Wonderland','Lewis Carroll','en','kids'],['b','Peter Pan','J. M. Barrie','en','kids'],['b','The Jungle Book','Rudyard Kipling','en','kids'],['b','Grimm\'s Fairy Tales','Brothers Grimm','en','kids'],['b','The Elements of Style','Strunk & White','en','lang'],['b','English Grammar in Familiar Lectures','Samuel Kirkham','en','lang'],['b','As a Man Thinketh','James Allen','en','skills'],['b','Self-Reliance','Ralph Waldo Emerson','en','skills'],['b','The Art of War','Sun Tzu','en','skills'],['b','The Science of Getting Rich','Wallace Wattles','en','skills'],
+['a','ألف ليلة وليلة','كتاب مسموع','ar','lit'],['a','كليلة ودمنة','كتاب مسموع','ar','lit'],['a','مقدمة ابن خلدون','كتاب مسموع','ar','hist'],['a','رياض الصالحين','كتاب مسموع','ar','rel'],['a','ديوان المتنبي','إلقاء شعري','ar','lit'],['a','قصص للأطفال','قصص مسموعة','ar','kids'],['a','أدب الدنيا والدين','كتاب مسموع','ar','skills'],
+['a','مەم و زین','کتێبی دەنگی','ku','lit'],['a','چیرۆکی منداڵان','چیرۆکی دەنگی','ku','kids'],
+['a','Pride and Prejudice','Jane Austen','en','lit'],['a','The Adventures of Sherlock Holmes','Arthur Conan Doyle','en','lit'],['a','Alice\'s Adventures in Wonderland','Lewis Carroll','en','kids'],['a','Aesop\'s Fables','Aesop','en','kids'],['a','Meditations','Marcus Aurelius','en','phil'],['a','The Art of War','Sun Tzu','en','skills'],['a','As a Man Thinketh','James Allen','en','skills'],
+['v','تطوير الذات','محاضرات وفيديوهات','ar','motiv'],['v','محاضرات تحفيزية وتشجيعية','كلمات ملهمة','ar','motiv'],['v','الثقة بالنفس','فيديوهات','ar','motiv'],['v','إدارة الوقت','مهارات','ar','skills'],['v','مهارات التواصل والإقناع','مهارات','ar','skills'],['v','عادات النجاح','تطوير الذات','ar','motiv'],['v','تعلم اللغة الإنجليزية','دروس','ar','lang'],
+['v','پەرەپێدانی خود','ڤیدیۆ و وتار','ku','motiv'],['v','وتاری هاندەر و ئیلهامبەخش','وتار','ku','motiv'],['v','متمانە بەخۆبوون','ڤیدیۆ','ku','motiv'],['v','بەڕێوەبردنی کات','توانا','ku','skills'],
+['v','Self Development','Talks & videos','en','motiv'],['v','Motivational Speeches','Inspiring talks','en','motiv'],['v','Confidence Building','Videos','en','motiv'],['v','Time Management','Skills','en','skills'],['v','Communication Skills','Skills','en','skills'],['v','Growth Mindset','Self-development','en','motiv']
+].map(x=>({k:x[0],t:x[1],a:x[2],l:x[3],c:x[4],r:x[5]||'',d:x[6]||''}));
+
+const GB={"Pride and Prejudice":1342,"Great Expectations":1400,"Treasure Island":120,"The Adventures of Sherlock Holmes":1661,"Frankenstein":84,"The Histories":2707,"The Republic":1497,"The Prince":1232,"Meditations":2680,"On the Origin of Species":1228,"Aesop's Fables":21,"Alice's Adventures in Wonderland":11,"Peter Pan":16,"The Jungle Book":236,"Grimm's Fairy Tales":2591,"The Elements of Style":37134,"As a Man Thinketh":4507,"Self-Reliance":2944,"The Art of War":132,"The Science of Getting Rich":4651};
+DATA.forEach(b=>{if(b.k==='b'&&b.l==='en'&&GB[b.t]&&!b.r){const i=GB[b.t];b.r=`https://www.gutenberg.org/cache/epub/${i}/pg${i}-images.html`;b.d=`https://www.gutenberg.org/ebooks/${i}`}});
+const X=(k,t,a,l,c,r,d)=>DATA.push({k,t,a,l,c,r:r||'',d:d||''});
+X('b','مكتبة هنداوي (كتب عربية مجانية)','مؤسسة هنداوي','ar','coll','https://www.hindawi.org');
+X('b','ويكي مصدر العربية','مكتبة حرة','ar','coll','https://ar.wikisource.org');
+X('b','أرشيف الإنترنت — كتب عربية','Internet Archive','ar','coll','https://archive.org/search?query=language%3Aara&and[]=mediatype%3A%22texts%22');
+X('b','المكتبة الشاملة','مكتبة تراثية إلكترونية','ar','coll','https://shamela.ws');
+X('b','ویکیی سەرچاوە — کوردی سۆرانی','مکتبة حرة','ku','coll','https://ckb.wikisource.org');
+X('b','ویکیی سەرچاوە — کوردی کرمانجی','مکتبة حرة','ku','coll','https://ku.wikisource.org');
+X('b','Project Gutenberg','75,000+ free ebooks','en','coll','https://www.gutenberg.org');
+X('b','Standard Ebooks','Free, carefully formatted classics','en','coll','https://standardebooks.org');
+X('b','Open Library','Internet Archive','en','coll','https://openlibrary.org');
+X('b','Wikisource (English)','Free library','en','coll','https://en.wikisource.org');
+X('a','LibriVox — free public-domain audiobooks','LibriVox','en','coll','https://librivox.org');
+X('a','أرشيف الإنترنت — مواد صوتية','Internet Archive','ar','coll','https://archive.org/details/audio');
+X('j','DOAJ — دليل المجلات المفتوحة الوصول','Directory of Open Access Journals — فهرس مجلات محكمة بجميع التخصصات','en','dir','https://doaj.org');
+X('j','IASJ — المجلات الأكاديمية العراقية','منصة المجلات العلمية المحكمة للجامعات العراقية (مفتوحة الوصول)','ar','dir','https://iasj.rdd.edu.iq/journals');
+X('j','ASJP — المنصة الجزائرية للمجلات العلمية','مئات المجلات الجزائرية المحكمة','ar','dir','https://asjp.cerist.dz');
+X('j','بنك المعرفة المصري — المجلات الأكاديمية','Egyptian Academic Journals','ar','dir','https://journals.ekb.eg');
+X('j','PubMed Central (PMC)','أرشيف مجاني للأبحاث الطبية والحيوية','en','dir','https://pmc.ncbi.nlm.nih.gov');
+X('j','African Journals Online (AJOL)','مجلات إفريقية محكمة','en','dir','https://www.ajol.info');
+X('j','SciELO','مكتبة علمية إلكترونية مفتوحة','en','dir','https://scielo.org');
+X('j','PLOS ONE','مجلة محكمة مفتوحة الوصول متعددة التخصصات','en','oa','https://journals.plos.org/plosone');
+X('j','eLife','علوم الحياة والطب الحيوي','en','oa','https://elifesciences.org');
+X('j','Scientific Reports','Nature Portfolio — مفتوحة الوصول','en','oa','https://www.nature.com/srep');
+X('j','Frontiers','مجلات محكمة مفتوحة الوصول','en','oa','https://www.frontiersin.org');
+X('j','PeerJ','علوم الحياة والحاسوب','en','oa','https://peerj.com');
+X('j','BMC (BioMed Central)','مجلات طبية وعلمية مفتوحة الوصول','en','oa','https://www.biomedcentral.com');
+X('j','MDPI','مجلات محكمة مفتوحة الوصول','en','oa','https://www.mdpi.com');
+X('j','Cureus','مجلة طبية مفتوحة الوصول','en','oa','https://www.cureus.com');
+X('j','JMIR — Journal of Medical Internet Research','الصحة الرقمية','en','oa','https://www.jmir.org');
+
+/* ===== جولة النقد والأدب والعلوم والتجارب ===== */
+X('b','في الأدب الجاهلي','طه حسين','ar','crit','https://www.safahat.org/books/59309248/','https://www.safahat.org/books/59309248/');
+X('b','حديث الأربعاء','طه حسين','ar','crit');
+X('b','مستقبل الثقافة في مصر','طه حسين','ar','crit');
+X('b','طبقات فحول الشعراء','ابن سلام الجمحي','ar','crit');
+X('b','الشعر والشعراء','ابن قتيبة','ar','crit');
+X('b','نقد الشعر','قدامة بن جعفر','ar','crit');
+X('b','الموازنة بين أبي تمام والبحتري','الآمدي','ar','crit');
+X('b','الوساطة بين المتنبي وخصومه','القاضي الجرجاني','ar','crit');
+X('b','العمدة في محاسن الشعر وآدابه','ابن رشيق القيرواني','ar','crit');
+X('b','دلائل الإعجاز','عبد القاهر الجرجاني','ar','crit');
+X('b','أسرار البلاغة','عبد القاهر الجرجاني','ar','crit');
+X('b','كتاب الصناعتين','أبو هلال العسكري','ar','crit');
+X('b','المثل السائر في أدب الكاتب والشاعر','ضياء الدين بن الأثير','ar','crit');
+X('b','منهاج البلغاء وسراج الأدباء','حازم القرطاجني','ar','crit');
+X('b','مقدمة ابن خلدون (فصل علم الأدب)','ابن خلدون','ar','crit');
+X('b','Poetics','Aristotle','en','crit');
+X('b','A Defence of Poetry','Percy Bysshe Shelley','en','crit');
+X('b','Biographia Literaria','Samuel Taylor Coleridge','en','crit');
+X('b','The Sacred Wood: Essays on Poetry and Criticism','T. S. Eliot','en','crit');
+X('b','Aspects of the Novel','E. M. Forster','en','crit');
+X('b','الجبر والمقابلة','الخوارزمي','ar','phys');
+X('b','كتاب المناظر','ابن الهيثم','ar','phys');
+X('b','كتاب الحيل','بنو موسى','ar','phys');
+X('b','الجامع بين العلم والعمل النافع في صناعة الحيل','الجزري','ar','phys');
+X('b','كتاب الأسرار','أبو بكر الرازي','ar','chem');
+X('b','كتاب السموم','جابر بن حيان','ar','chem');
+X('b','كتاب الحيوان','الجاحظ','ar','bio');
+X('b','الحاوي في الطب','الرازي','ar','bio');
+X('b','The Chemical History of a Candle','Michael Faraday','en','chem');
+X('b','Relativity: The Special and General Theory','Albert Einstein','en','phys');
+X('b','Opticks','Isaac Newton','en','phys');
+X('b','The Voyage of the Beagle','Charles Darwin','en','bio');
+X('b','The Descent of Man','Charles Darwin','en','bio');
+X('b','OpenStax — High School Physics','OpenStax (free textbook)','en','phys','https://openstax.org/details/books/high-school-physics');
+X('b','OpenStax — Physics','OpenStax (free textbook)','en','phys','https://openstax.org/details/books/physics');
+X('b','OpenStax — University Physics','OpenStax (free textbook)','en','phys','https://openstax.org/details/books/university-physics-volume-1');
+X('b','OpenStax — Chemistry 2e','OpenStax (free textbook)','en','chem','https://openstax.org/details/books/chemistry-2e');
+X('b','OpenStax — Chemistry: Atoms First 2e','OpenStax (free textbook)','en','chem','https://openstax.org/details/books/chemistry-atoms-first-2e');
+X('b','OpenStax — Biology 2e','OpenStax (free textbook)','en','bio','https://openstax.org/details/books/biology-2e');
+X('b','OpenStax — Concepts of Biology','OpenStax (free textbook)','en','bio','https://openstax.org/details/books/concepts-biology');
+X('b','OpenStax — Anatomy & Physiology 2e','OpenStax (free textbook)','en','bio','https://openstax.org/details/books/anatomy-and-physiology-2e');
+X('b','OpenStax — Microbiology','OpenStax (free textbook)','en','bio','https://openstax.org/details/books/microbiology');
+X('b','CK-12 — Physics, Chemistry, Biology FlexBooks','CK-12 Foundation','en','coll','https://www.ck12.org');
+X('b','Open Textbook Library','University of Minnesota','en','coll','https://open.umn.edu/opentextbooks');
+X('b','Physics Hypertextbook','Glenn Elert','en','phys','https://physics.info');
+X('e','محاكيات PhET التفاعلية (فيزياء، كيمياء، أحياء)','جامعة كولورادو — مجاناً','en','phys','https://phet.colorado.edu');
+X('e','محاكيات PhET المترجمة إلى العربية','جامعة كولورادو','ar','phys','https://phet.colorado.edu/en/simulations/translated/ar');
+X('e','Exploratorium Science Snacks — تجارب بسيطة بأدوات منزلية','Exploratorium','en','phys','https://www.exploratorium.edu/snacks');
+X('e','Science Buddies — مشاريع علمية للطلبة','Science Buddies','en','inno','https://www.sciencebuddies.org/science-fair-projects/project-ideas');
+X('e','Khan Academy بالعربية — فيزياء وكيمياء وأحياء','Khan Academy','ar','coll','https://ar.khanacademy.org');
+X('e','NASA STEM — أنشطة ومشاريع','NASA','en','inno','https://www.nasa.gov/stem');
+X('e','Arduino Project Hub — مشاريع إلكترونية مبتكرة','Arduino','en','inno','https://projecthub.arduino.cc');
+X('e','Make: Projects — مشاريع صناعة وابتكار','Make Magazine','en','inno','https://makezine.com/projects');
+X('e','تجارب فيزيائية ممتعة للطلبة','فيديوهات','ar','phys');
+X('e','تجارب كيميائية آمنة ومذهلة','فيديوهات','ar','chem');
+X('e','تجارب أحيائية بسيطة','فيديوهات','ar','bio');
+X('e','قصص علماء ملهمون ومخترعون عرب','فيديوهات','ar','inno');
+X('e','أفكار مشاريع علمية ومخترعات للطلبة','فيديوهات','ar','inno');
+X('e','تاقیکردنەوەی فیزیایی بۆ قوتابیان','ڤیدیۆ','ku','phys');
+X('e','تاقیکردنەوەی کیمیایی','ڤیدیۆ','ku','chem');
+X('e','تاقیکردنەوەی ژیانناسی','ڤیدیۆ','ku','bio');
+X('e','داهێنان و پڕۆژەی زانستی بۆ قوتابیان','ڤیدیۆ','ku','inno');
+X('e','Amazing physics experiments for students','Videos','en','phys');
+X('e','Safe chemistry experiments at home','Videos','en','chem');
+X('e','Biology experiments for high school','Videos','en','bio');
+X('e','Inspiring inventors and young innovators','Videos','en','inno');
+
+/* ===== قواميس، سياسة، مصادر منهجية، فنون ===== */
+X('b','لسان العرب','ابن منظور','ar','dict');
+X('b','القاموس المحيط','الفيروزآبادي','ar','dict');
+X('b','الصحاح تاج اللغة وصحاح العربية','الجوهري','ar','dict');
+X('b','تاج العروس من جواهر القاموس','الزبيدي','ar','dict');
+X('b','معجم مقاييس اللغة','ابن فارس','ar','dict');
+X('b','كتاب العين','الخليل بن أحمد الفراهيدي','ar','dict');
+X('b','مختار الصحاح','محمد بن أبي بكر الرازي','ar','dict');
+X('b','أساس البلاغة','الزمخشري','ar','dict');
+X('b','المصباح المنير','الفيومي','ar','dict');
+X('b','معجم الدوحة التاريخي للغة العربية','مجمع الدوحة','ar','dict','https://www.dohadictionary.org');
+X('b','معجم المعاني الجامع (عربي)','قاموس إلكتروني','ar','dict','https://www.almaany.com');
+X('b','ويكاموس العربي','Wiktionary','ar','dict','https://ar.wiktionary.org');
+X('b','ویکیفەرهەنگی کوردی (سۆرانی)','Wiktionary','ku','dict','https://ckb.wiktionary.org');
+X('b','فەرهەنگی هەژار — هەنبانە بۆرینە','هەژار موکریانی','ku','dict');
+X('b','فەرهەنگی خاڵ','شێخ محەمەدی خاڵ','ku','dict');
+X('b','قاموسی کوردی-عەرەبی-ئینگلیزی (ئۆنلاین)','Glosbe','ku','dict','https://glosbe.com');
+X('b','Merriam-Webster Dictionary','Merriam-Webster','en','dict','https://www.merriam-webster.com');
+X('b','Oxford Learner\'s Dictionaries','Oxford University Press','en','dict','https://www.oxfordlearnersdictionaries.com');
+X('b','Cambridge Dictionary','Cambridge University Press','en','dict','https://dictionary.cambridge.org');
+X('b','Wiktionary (English)','Wikimedia','en','dict','https://en.wiktionary.org');
+X('b','Webster\'s Unabridged Dictionary','Noah Webster','en','dict');
+X('b','الأحكام السلطانية','الماوردي','ar','pol');
+X('b','السياسة الشرعية','ابن تيمية','ar','pol');
+X('b','سراج الملوك','الطرطوشي','ar','pol');
+X('b','طبائع الاستبداد ومصارع الاستعباد','عبد الرحمن الكواكبي','ar','pol');
+X('b','أم القرى','عبد الرحمن الكواكبي','ar','pol');
+X('b','الإسلام وأصول الحكم','علي عبد الرازق','ar','pol');
+X('b','الفكر السياسي عند ابن خلدون (من المقدمة)','ابن خلدون','ar','pol');
+X('b','Leviathan','Thomas Hobbes','en','pol');
+X('b','Two Treatises of Government','John Locke','en','pol');
+X('b','The Social Contract','Jean-Jacques Rousseau','en','pol');
+X('b','On Liberty','John Stuart Mill','en','pol');
+X('b','Democracy in America','Alexis de Tocqueville','en','pol');
+X('b','Politics','Aristotle','en','pol');
+X('b','Utopia','Thomas More','en','pol','https://www.gutenberg.org/cache/epub/2130/pg2130-images.html','https://www.gutenberg.org/ebooks/2130');
+X('b','Common Sense','Thomas Paine','en','pol','https://www.gutenberg.org/cache/epub/147/pg147-images.html','https://www.gutenberg.org/ebooks/147');
+X('b','The Federalist Papers','Hamilton, Madison, Jay','en','pol','https://www.gutenberg.org/cache/epub/1404/pg1404-images.html','https://www.gutenberg.org/ebooks/1404');
+X('b','The Communist Manifesto','Karl Marx & Friedrich Engels','en','pol','https://www.gutenberg.org/cache/epub/61/pg61-images.html','https://www.gutenberg.org/ebooks/61');
+X('b','وزارة التربية — العراق (الكتب المدرسية)','الموقع الرسمي','ar','edu','https://moedu.gov.iq');
+X('b','وزارة التربية — إقليم كوردستان','الموقع الرسمي','ku','edu','https://moe.gov.krd');
+X('b','وزارة التعليم — السعودية (منصة عين)','الموقع الرسمي','ar','edu','https://ien.edu.sa');
+X('b','وزارة التربية والتعليم — الأردن','الموقع الرسمي','ar','edu','https://moe.gov.jo');
+X('b','وزارة التربية والتعليم — الإمارات','الموقع الرسمي','ar','edu','https://www.moe.gov.ae');
+X('b','وزارة التربية والتعليم — مصر','الموقع الرسمي','ar','edu','https://moe.gov.eg');
+X('b','أكاديمية خان بالعربية — مناهج الثانوية','Khan Academy','ar','edu','https://ar.khanacademy.org');
+X('b','OpenStax — Free Textbooks for High School & College','OpenStax','en','edu','https://openstax.org/subjects');
+X('b','CK-12 — Free K-12 FlexBooks','CK-12 Foundation','en','edu','https://www.ck12.org');
+const ER={ren:['عصر النهضة','ڕێنیسانس','Renaissance'],bar:['الباروك','باڕۆک','Baroque'],rom:['الرومانسية','ڕۆمانتیک','Romanticism'],imp:['الانطباعية','ئیمپرێشنیزم','Impressionism'],pim:['ما بعد الانطباعية','پۆست ئیمپرێشنیزم','Post-Impressionism'],mod:['الحداثة','مۆدێرنیزم','Modernism'],sur:['السريالية','سوریالیزم','Surrealism']};
+[['ليوناردو دا فينشي','لیۆناردۆ داڤینچی','Leonardo da Vinci','Leonardo_da_Vinci','ren'],['مايكل أنجلو','میکەلانجێلۆ','Michelangelo','Michelangelo','ren'],['رافائيل','ڕافائێل','Raphael','Raphael','ren'],['بوتيتشيلي','بۆتیچێلی','Sandro Botticelli','Sandro_Botticelli','ren'],['تيتيان','تیتیان','Titian','Titian','ren'],['كارافاجيو','کاراڤاجیۆ','Caravaggio','Caravaggio','bar'],['فيلاثكيث','ڤیلازکێز','Diego Velázquez','Diego_Vel%C3%A1zquez','bar'],['رامبرانت','ڕێمبراند','Rembrandt','Rembrandt','bar'],['يوهانس فيرمير','ڤێرمێر','Johannes Vermeer','Johannes_Vermeer','bar'],['فرانثيسكو غويا','گۆیا','Francisco Goya','Francisco_Goya','rom'],['أوجين ديلاكروا','دیلاکروا','Eugène Delacroix','Eug%C3%A8ne_Delacroix','rom'],['ويليام تيرنر','تێرنەر','J. M. W. Turner','J._M._W._Turner','rom'],['كلود مونيه','کلۆد مۆنێ','Claude Monet','Claude_Monet','imp'],['بيير أوغست رينوار','ڕینوار','Pierre-Auguste Renoir','Pierre-Auguste_Renoir','imp'],['إدغار ديغا','دیگا','Edgar Degas','Edgar_Degas','imp'],['بول سيزان','پۆڵ سیزان','Paul Cézanne','Paul_C%C3%A9zanne','pim'],['فينسنت فان غوخ','ڤان گۆگ','Vincent van Gogh','Vincent_van_Gogh','pim'],['إدفارد مونك','ئێدڤارد مونک','Edvard Munch','Edvard_Munch','mod'],['غوستاف كليمت','گوستاڤ کلیمت','Gustav Klimt','Gustav_Klimt','mod'],['بابلو بيكاسو','پابلۆ پیکاسۆ','Pablo Picasso','Pablo_Picasso','mod'],['سلفادور دالي','سالڤادۆر دالی','Salvador Dalí','Salvador_Dal%C3%AD','sur']].forEach(a=>['ar','ku','en'].forEach((l,i)=>X('r',a[i],ER[a[4]][i],l,'paint','https://commons.wikimedia.org/wiki/Category:'+a[3])));
+[['متحف اللوفر — باريس','مۆزەخانەی لوڤر — پاریس','The Louvre — Paris','https://collections.louvre.fr'],['متحف المتروبوليتان — نيويورك','مۆزەخانەی میتڕۆپۆلیتان — نیۆیۆرک','The Metropolitan Museum of Art','https://www.metmuseum.org/art/collection'],['ريكسميوزيوم — أمستردام','ڕایکسمیۆزیۆم — ئەمستەردام','Rijksmuseum — Amsterdam','https://www.rijksmuseum.nl/en/rijksstudio'],['المعرض الوطني — لندن','گەلەری نیشتمانی — لەندەن','The National Gallery — London','https://www.nationalgallery.org.uk/paintings'],['معرض أوفيزي — فلورنسا','ئۆفیتسی — فلۆرانس','Uffizi Gallery — Florence','https://www.uffizi.it/en/artworks'],['متحف البرادو — مدريد','مۆزەخانەی پرادۆ — مەدرید','Museo del Prado — Madrid','https://www.museodelprado.es/en/the-collection'],['متحف الأرميتاج — سان بطرسبرغ','هێرمیتاج — سان پیتەرسبورگ','The State Hermitage Museum','https://hermitagemuseum.org'],['متحف الفن الحديث (MoMA)','مۆزەخانەی هونەری مۆدێرن (MoMA)','MoMA — Museum of Modern Art','https://www.moma.org/collection'],['متحف فان غوخ — أمستردام','مۆزەخانەی ڤان گۆگ','Van Gogh Museum','https://www.vangoghmuseum.nl/en/collection'],['المتحف البريطاني — لندن','مۆزەخانەی بریتانی — لەندەن','The British Museum','https://www.britishmuseum.org/collection'],['متحف أورسيه — باريس','مۆزەخانەی ئۆرسێ — پاریس','Musée d\'Orsay','https://www.musee-orsay.fr/en/collections'],['معهد شيكاغو للفنون','پەیمانگەی هونەری شیکاگۆ','Art Institute of Chicago','https://www.artic.edu/collection'],['متاحف الفاتيكان','مۆزەخانەکانی ڤاتیکان','Vatican Museums','https://www.museivaticani.va'],['متحف الفن الإسلامي — الدوحة','مۆزەخانەی هونەری ئیسلامی — دۆحە','Museum of Islamic Art — Doha','https://www.mia.org.qa']].forEach(a=>['ar','ku','en'].forEach((l,i)=>X('r',a[i],['متحف','مۆزەخانە','Museum'][i],l,'museum',a[3])));
+X('r','جوجل للفنون والثقافة','Google Arts & Culture','ar','museum','https://artsandculture.google.com');
+X('r','ويكيميديا كومنز — لوحات ومقتنيات حرة','Wikimedia Commons','ar','museum','https://commons.wikimedia.org');
+X('r','ويكي آرت — موسوعة الفنون التشكيلية','WikiArt','ar','museum','https://www.wikiart.org');
+X('r','Europeana — European Art & Culture','Europeana','en','museum','https://www.europeana.eu');
+X('r','Smithsonian Open Access','Smithsonian','en','museum','https://www.si.edu/openaccess');
+const KEY='bandar_lib_v2';let extra=[],ui='ar',tab='b',lang='all',cat='all',lvl='all',mode='tab',favs=[],shared=null;
+try{favs=JSON.parse(localStorage.getItem(KEY+'_fav')||'[]');extra=JSON.parse(localStorage.getItem(KEY+'_x')||'[]');ui=localStorage.getItem(KEY+'_ui')||'ar'}catch(e){}
+const $=id=>document.getElementById(id);
+const esc=s=>String(s||'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+const safe=u=>/^https?:\/\//i.test(u||'')?u:'';
+const enc=encodeURIComponent;
+const WS={ar:'ar',ku:'ckb',en:'en'};
+function L(b){
+ const q=enc(b.t+(b.k==='b'&&b.a&&b.a!=='مؤلف مجهول'?' '+b.a:''));
+ if(b.k==='b')return[safe(b.r)||(b.l==='en'?`https://www.gutenberg.org/ebooks/search/?query=${enc(b.t)}`:`https://${WS[b.l]}.wikisource.org/w/index.php?search=${enc(b.t)}`),safe(b.d)||`https://archive.org/search?query=${q}&and[]=mediatype%3A%22texts%22`];
+ if(b.k==='a'){const sfx={ar:' كتاب مسموع',ku:' کتێبی دەنگی',en:' audiobook'}[b.l];
+  return[safe(b.r)||(b.l==='en'?`https://librivox.org/search?q=${enc(b.t)}`:`https://www.youtube.com/results?search_query=${enc(b.t+sfx)}`),safe(b.d)||`https://archive.org/search?query=${q}&and[]=mediatype%3A%22audio%22`];}
+ if(b.k==='j'||b.k==='r')return[safe(b.r),''];
+ if(b.k==='w')return[safe(b.r),safe(b.d)];
+ return[safe(b.r)||`https://www.youtube.com/results?search_query=${enc(b.t+(b.l==='ku'?' کوردی':''))}`,''];
+}
+const all=()=>DATA.concat(extra.map((b,i)=>({...b,x:i})));
+function persist(){try{localStorage.setItem(KEY+'_x',JSON.stringify(extra))}catch(e){}}
+function chipsHtml(items,cur,attr){return items.map(([v,n])=>`<button class="chip ${v===cur?'on':''}" data-${attr}="${v}">${n}</button>`).join('')}
+const nz=t=>t.replace(/\s+/g,' ').trim().toLowerCase();
+
+const LVC={kids:'kids',edu:'sec',phys:'sec',chem:'sec',bio:'sec',lang:'sec',dict:'sec',crit:'sec',inno:'sec',skills:'sec'};
+const lvOf=b=>b.k==='j'?'uni':/University Physics|Anatomy|Microbiology|Opticks|Descent|Voyage/.test(b.t)?'uni':(LVC[b.c]||'gen');
+const idOf=b=>b.k+'|'+b.l+'|'+b.t;
+const saveFav=()=>{try{localStorage.setItem(KEY+'_fav',JSON.stringify(favs))}catch(e){}};
+const enc64=o=>btoa(unescape(encodeURIComponent(JSON.stringify(o))));
+const dec64=t=>JSON.parse(decodeURIComponent(escape(atob(t))));
+const baseUrl=()=>location.href.split('#')[0];
+function listUrl(){return baseUrl()+'#list='+enc64({n:$('ln').value.trim(),i:favs})}
+function readHash(){try{const m=location.hash.match(/list=([^&]+)/);if(m){const d=dec64(decodeURIComponent(m[1]));if(d&&Array.isArray(d.i)){shared=d;mode='shared'}}}catch(e){}}
+function itemsFor(ids){const set=new Set(ids);return all().filter(b=>set.has(idOf(b)))}
+function cross(b,s){
+ if(b.k!=='a'&&b.k!=='b')return'';
+ const o=b.k==='a'?'b':'a';
+ const m=all().find(x=>x.k===o&&x.l===b.l&&nz(x.t)===nz(b.t));
+ if(!m)return'';
+ return `<button class="chip" data-go="${o}|${b.l}|${esc(b.t)}">${o==='b'?s.toB:s.toA}</button>`;
+}
+/* عدّاد الزوّار الاختياري: عند استضافة الصفحة على نطاقك الخاص ضع رمز موقعك في GoatCounter هنا (مثل 'mylibrary') */
+const GC='';
+const PUBLIC=true;
+const ADM=!PUBLIC||/admin/.test(location.hash);
+let visits='';
+function initCounter(){if(!GC)return;try{const sc=document.createElement('script');sc.async=true;sc.src='https://gc.zgo.at/count.js';sc.dataset.goatcounter=`https://${GC}.goatcounter.com/count`;document.head.appendChild(sc);
+ fetch(`https://${GC}.goatcounter.com/counter/TOTAL.json`).then(r=>r.json()).then(d=>{visits=d.count;render()}).catch(()=>{})}catch(e){}}
+function render(){
+ const s=T[ui],q=$('q').value.trim().toLowerCase();
+ const src=mode==='fav'?itemsFor(favs):mode==='shared'?itemsFor(shared.i):all().filter(b=>b.k===tab);
+ const base=src.filter(b=>(lang==='all'||b.l===lang)&&(lvl==='all'||lvOf(b)===lvl));
+ const cats=[...new Set(base.map(b=>b.c))];
+ if(cat!=='all'&&!cats.includes(cat))cat='all';
+ $('tabs').innerHTML=['b','a','v','j','e','r','w'].map(k=>`<button class="tab ${(k===tab&&mode==='tab')?'on':''}" data-k="${k}">${s.tabs[k]}</button>`).join('');
+ $('langs').innerHTML=chipsHtml([['all',s.all],...['ar','ku','en'].map(l=>[l,LN[ui][l]])],lang,'l');
+ {const A=all(),n=k=>A.filter(b=>b.k===k).length;
+  $('stats').innerHTML=`${s.stt}: `+['b','a','v','j','e','r','w'].map(k=>`<span>${s.tabs[k]} <b>${n(k)}</b></span>`).join('')+`<br>`+['ar','ku','en'].map(l=>`<span>${LN[ui][l]} <b>${A.filter(b=>b.l===l).length}</b></span>`).join('')+(visits?`<br><span>${s.vis} <b>${esc(visits)}</b></span><br><small>${s.thx}</small>`:'')}
+ $('lvls').innerHTML=chipsHtml(['all','kids','sec','uni','gen'].map(v=>[v,s.lv[v]]),lvl,'v');
+ $('favBtn').textContent=s.fav+' ('+favs.length+')';$('favBtn').style.background=mode==='fav'?'var(--p)':'';$('favBtn').style.color=mode==='fav'?'var(--c)':'';
+ $('banner').innerHTML=mode==='shared'?`<b>${esc(shared.n||s.shared)}</b> — ${shared.i.length}<br><button class="chip" data-bn="save">${s.saveall}</button><button class="chip" data-bn="back">${s.back}</button>`:(mode==='fav'&&!favs.length?s.nofav:'');
+ $('chips').innerHTML=chipsHtml([['all',s.all],...Object.keys(CT).filter(c=>cats.includes(c)).map(c=>[c,CT[c][ui]])],cat,'c');
+ const list=base.filter(b=>(cat==='all'||b.c===cat)&&(b.t+' '+b.a).toLowerCase().includes(q));
+ $('count').textContent=s.n+list.length;
+ $('grid').innerHTML=list.length?list.map(b=>{const[u,d]=L(b);
+  return `<div class="card" dir="${b.l==='en'?'ltr':'rtl'}"><div><div class="top"><div class="cat">${esc(CT[b.c]?CT[b.c][ui]:'')} · ${LN[ui][b.l]}</div><button class="star" data-f="${esc(idOf(b))}" aria-label="favorite">${favs.includes(idOf(b))?'★':'☆'}</button></div><div class="ti">${esc(b.t)}</div><div class="au">${esc(b.a)}</div></div>
+  <div class="acts"><a class="btn" target="_blank" rel="noopener" href="${esc(u)}">${b.k==='b'?s.read:b.k==='a'?s.listen:(b.k==='j'||b.k==='r'||b.k==='w')?(b.k==='w'&&!b.r?s.read:s.open):b.k==='e'?(b.r?s.open:s.watch):s.watch}</a>${d?`<a class="btn d" target="_blank" rel="noopener" href="${esc(d)}">${s.dl}</a>`:''}</div>
+  ${cross(b,s)}${(ADM&&b.x!==undefined)?`<button class="del" data-x="${b.x}">${s.del}</button>`:''}</div>`}).join(''):`<div class="none">${(tab==='w'&&mode==='tab'&&!q&&lvl==='all'&&lang==='all')?s.wempty:s.none}</div>`;
+}
+function applyUI(){
+ const s=T[ui];document.documentElement.lang=ui;document.documentElement.dir=s.dir;
+ $('h1').textContent=s.h;$('sub').textContent=s.sub;$('q').placeholder=s.q;$('l1').textContent=s.cl;
+ $('l2').textContent=s.lvlab;$('shareBtn').textContent=s.share;$('sh0').textContent=s.share.replace('🔗 ','');$('sh1').textContent=s.libLink;$('sh2').textContent=s.listName;$('sh3').textContent=s.qrt;$('shx').textContent=s.close;$('nat').textContent=s.share;document.querySelectorAll('[data-cp]').forEach(b=>b.textContent=s.copy);
+ ['addBtn','expBtn','impBtn'].forEach(id=>$(id).style.display=ADM?'':'none');
+ $('addBtn').textContent=s.add;$('expBtn').textContent=s.exp;$('impBtn').textContent=s.imp;$('foot').textContent=s.foot;document.title=s.h.replace('','');
+ $('dh').textContent=s.ah;s.f.forEach((v,i)=>$('d'+i).textContent=v);$('save').textContent=s.save;$('cancel').textContent=s.cancel;
+ $('fK').innerHTML=['b','a','v','j','e','r','w'].map(k=>`<option value="${k}">${s.tabs[k]}</option>`).join('');
+ $('fL').innerHTML=['ar','ku','en'].map(l=>`<option value="${l}">${LN[ui][l]}</option>`).join('');
+ $('fC').innerHTML=Object.keys(CT).map(c=>`<option value="${c}">${CT[c][ui]}</option>`).join('');
+ document.querySelectorAll('#ui button').forEach(b=>b.classList.toggle('on',b.dataset.u===ui));
+ render();
+}
+$('ui').onclick=e=>{const u=e.target.dataset.u;if(u){ui=u;try{localStorage.setItem(KEY+'_ui',u)}catch(_){}applyUI()}};
+$('tabs').onclick=e=>{const k=e.target.dataset.k;if(k){tab=k;mode='tab';cat='all';render()}};
+$('lvls').onclick=e=>{const v=e.target.dataset.v;if(v){lvl=v;render()}};
+$('favBtn').onclick=()=>{mode=mode==='fav'?'tab':'fav';cat='all';render()};
+$('banner').onclick=e=>{const a=e.target.dataset.bn;if(a==='save'){shared.i.forEach(i=>{if(!favs.includes(i))favs.push(i)});saveFav();mode='fav';render()}else if(a==='back'){mode='tab';shared=null;history.replaceState(null,'',baseUrl());render()}};
+$('langs').onclick=e=>{const l=e.target.dataset.l;if(l){lang=l;render()}};
+$('chips').onclick=e=>{const c=e.target.dataset.c;if(c){cat=c;render()}};
+$('q').oninput=render;
+$('grid').onclick=e=>{
+ const f=e.target.dataset.f;
+ if(f){const i=favs.indexOf(f);i>=0?favs.splice(i,1):favs.push(f);saveFav();render();return}
+ const g=e.target.dataset.go;
+ if(g){const[k,l,...t]=g.split('|');tab=k;lang=l;cat='all';$('q').value=t.join('|');render();window.scrollTo({top:0,behavior:'smooth'});return}
+const x=e.target.dataset.x;if(x!==undefined&&confirm(T[ui].conf)){extra.splice(+x,1);persist();render()}};
+$('addBtn').onclick=()=>{$('fK').value=tab;$('dlg').showModal()};
+$('cancel').onclick=()=>$('dlg').close();
+$('save').onclick=()=>{const t=$('fT').value.trim();if(!t){$('fT').focus();return}
+ extra.push({k:$('fK').value,t,a:$('fA').value.trim(),l:$('fL').value,c:$('fC').value,r:$('fR').value.trim(),d:$('fD').value.trim()});
+ persist();['fT','fA','fR','fD'].forEach(i=>$(i).value='');$('dlg').close();render()};
+$('expBtn').onclick=()=>{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(extra,null,1)],{type:'application/json'}));a.download='my-library.json';a.click()};
+$('impBtn').onclick=()=>$('file').click();
+$('file').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();
+ r.onload=()=>{try{const d=JSON.parse(r.result);if(!Array.isArray(d))throw 0;
+  extra=extra.concat(d.filter(b=>b&&b.t).map(b=>({k:['b','a','v','j','e','r','w'].includes(b.k)?b.k:'b',t:String(b.t),a:String(b.a||''),l:['ar','ku','en'].includes(b.l)?b.l:'ar',c:CT[b.c]?b.c:'lit',r:b.r||'',d:b.d||''})));persist();render()}catch(_){alert(T[ui].bad)}};
+ r.readAsText(f);e.target.value=''};
+
+async function loadCatalog(){
+ try{const r=await fetch('catalog.json',{cache:'no-store'});if(!r.ok)return;const d=await r.json();
+  const K=['b','a','v','j','e','r','w'];
+  (Array.isArray(d)?d:(d.items||[])).forEach(b=>{if(b&&b.t)DATA.push({k:K.includes(b.k)?b.k:'b',t:String(b.t),a:String(b.a||''),l:['ar','ku','en'].includes(b.l)?b.l:'ar',c:CT[b.c]?b.c:'lit',r:b.r||'',d:b.d||''})});
+  const hide=new Set((d.hide||[]).map(String));
+  if(hide.size)for(let i=DATA.length-1;i>=0;i--)if(hide.has(DATA[i].t)||hide.has(idOf(DATA[i])))DATA.splice(i,1);
+  render()}catch(e){}}
+function drawQR(t){const el=$('qr');el.innerHTML='';try{if(window.QRCode&&t.length<900)new QRCode(el,{text:t,width:160,height:160})}catch(e){}}
+function refreshShare(){$('u1').value=baseUrl();$('u2').value=favs.length?listUrl():'';$('u2').style.display=$('ln').style.display=favs.length?'':'none';$('sh2').style.display=favs.length?'':'none'}
+$('shareBtn').onclick=()=>{refreshShare();drawQR(baseUrl());$('nat').style.display=navigator.share?'':'none';$('sh').showModal()};
+$('shx').onclick=()=>$('sh').close();
+$('ln').oninput=refreshShare;
+$('nat').onclick=()=>{try{navigator.share({title:T[ui].h,url:favs.length?listUrl():baseUrl()})}catch(e){}};
+$('sh').onclick=e=>{const id=e.target.dataset.cp;if(id){const i=$(id);if(!i.value)return;i.select();let ok=false;try{ok=document.execCommand('copy')}catch(_){}try{navigator.clipboard&&navigator.clipboard.writeText(i.value);ok=true}catch(_){}e.target.textContent=T[ui].copied;setTimeout(()=>e.target.textContent=T[ui].copy,1500)}};
+readHash();
+initCounter();
+loadCatalog();
+applyUI();
+</script>
+</body>
+</html>
