@@ -1,0 +1,73 @@
+{
+ "_help": [
+  "k: النوع — b كتاب، a مسموع، v فيديو، j مجلة، e تجربة، r فن، w مؤلفات الدكتور بندر",
+  "l: اللغة — ar أو ku أو en",
+  "c: القسم — lit أدب، hist تاريخ، sci علوم، phys فيزياء، chem كيمياء، bio أحياء، phil فكر، rel دين، kids أطفال، lang لغة ونحو، crit نقد، pol سياسة، dict قواميس، works مؤلفات، trans ترجمات",
+  "r: رابط القراءة (يقبل https فقط)، d: رابط التحميل — اتركهما \"\" للنسخ الورقية",
+  "hide: عناوين العناصر المدمجة في الصفحة التي تريد إخفاءها"
+ ],
+ "items": [
+  {
+   "k": "w",
+   "t": "ثورة كوردستان ومتغيّرات العصر: نضال الجبال أم انتفاضة المدن؟ (نسخة رقمية)",
+   "a": "تأليف: حكمت محمد كريم (ملا بختيار) — ترجمة ومراجعة: د. بندر علي أكبر — دار سائر المشرق، 2016",
+   "l": "ar",
+   "c": "trans",
+   "r": "https://drive.google.com/file/d/1gu8ccLBY8Ny4BGLjxKhxaEi-UYso9t3p/preview",
+   "d": "https://drive.google.com/file/d/1gu8ccLBY8Ny4BGLjxKhxaEi-UYso9t3p/view"
+  },
+  {
+   "k": "w",
+   "t": "وهج التاريخ (نسخة رقمية)",
+   "a": "تأليف: عماد أحمد سيفور — ترجمة: الدكتور بندر علي أكبر شاكه — بورد التوعية، الاتحاد الوطني الكوردستاني، 2026",
+   "l": "ar",
+   "c": "trans",
+   "r": "https://drive.google.com/file/d/18RRKe3K5V7vaVbulG6f36kYIf7EMHmgx/preview",
+   "d": "https://drive.google.com/file/d/18RRKe3K5V7vaVbulG6f36kYIf7EMHmgx/view"
+  },
+  {
+   "k": "w",
+   "t": "الحرب الخفية ضد الأكراد في تركيا (نسخة رقمية)",
+   "a": "تأليف: كريستينيا كويفونن — ترجمة: الدكتور بندر علي أكبر شاكه — منشورات مركز كردستان للدراسات الاستراتيجية، السليمانية، الطبعة الأولى 2021",
+   "l": "ar",
+   "c": "trans",
+   "r": "https://drive.google.com/file/d/1sldJp4_0nNWNf1VVbeZ0f91bHdHUDAcE/preview",
+   "d": "https://drive.google.com/file/d/1sldJp4_0nNWNf1VVbeZ0f91bHdHUDAcE/view",
+   "i": "data:image/jpeg;base64,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"
+  },
+  {
+   "k": "w",
+   "t": "ثورة كوردستان ومتغيّرات العصر: نضال الجبال أم انتفاضة المدن؟ (نسخة ورقية)",
+   "a": "نسخة ورقية مطبوعة — حكمت محمد كريم (ملا بختيار)، ترجمة ومراجعة: د. بندر علي أكبر — دار سائر المشرق، الطبعة الخامسة 2016 (ISBN 978-614-451-032-2)",
+   "l": "ar",
+   "c": "trans",
+   "r": "",
+   "d": ""
+  },
+  {
+   "k": "w",
+   "t": "مندلي: المدينة المنسية في حسابات القيادات الكوردية والحكومات العراقية (نسخة ورقية)",
+   "a": "نسخة ورقية مطبوعة — تأليف: الدكتور بندر علي أكبر شاكه — دار ومنشورات جلجامش، 2020",
+   "l": "ar",
+   "c": "works",
+   "r": "",
+   "d": ""
+  },
+  {
+   "k": "w",
+   "t": "تاريخ الفكر الكوردي (نسخة ورقية)",
+   "a": "نسخة ورقية مطبوعة — تأليف: فاضل كريم أحمد — ترجمة: الدكتور بندر علي أكبر شاكه — السليمانية، 2011",
+   "l": "ar",
+   "c": "trans",
+   "r": "",
+   "d": ""
+  }
+ ],
+ "hide": [
+  "ثورة كوردستان ومتغيّرات العصر: نضال الجبال أم انتفاضة المدن؟",
+  "وهج التاريخ",
+  "الحرب الخفية ضد الأكراد في تركيا",
+  "مندلي: المدينة المنسية في حسابات القيادات الكوردية والحكومات العراقية",
+  "تاريخ الفكر الكوردي"
+ ]
+}
